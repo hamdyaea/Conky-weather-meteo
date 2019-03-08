@@ -10,7 +10,6 @@
 
 This is the config of my conky. You have to configure linux to launch conky at startup and put this .conkyrc in you home directory.  
 
-This Python 3 software stream some radio stations from internet.
 
 ## Weather / Meteo
 
