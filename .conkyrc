@@ -23,8 +23,10 @@ mail_spool $MAIL
 
 update_interval 1
 
-own_window no
-
+own_window_class Conky
+own_window yes
+own_window_transparent yes
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager,below
 
 double_buffer yes
 
