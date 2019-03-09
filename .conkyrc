@@ -10,7 +10,7 @@ out_to_console no
 use_xft yes
 
 
-xftfont Bitstream Vera Sans Mono:size=8
+xftfont DejaVuSansMono:size=8
 
 own_window_colour hotpink
 
