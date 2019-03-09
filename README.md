@@ -3,7 +3,7 @@
 # My conky configuration file with weather. 
 
 
-![Screenshot](conky1.png)
+![Screenshot](conky2.png)
 
 
 ## What's this file ?
