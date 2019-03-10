@@ -28,9 +28,28 @@ Down:${color #8844ee} ${downspeed eth0} k/s${color lightgrey} ${offset 70}Up:${c
 ${color black}${downspeedgraph eth0 32,150 ff0000 0000ff} $alignr${color black}${upspeedgraph eth0 32,150 0000ff ff0000}
 ```
 
+The weather police is DejaVu.
+
+
+To install it:
+
+On Debian, Ubuntu, lubuntu etc...
+
+```sh
+sudo apt install ttf-dejavu
+```
+
+On ArchLinux, Manjaro etc...
+
+```sh
+sudo pacman -S ttf-dejavu
+```
+
+
 ## Developer - Author
 
 Hamdy Abou El Anein
+
 
 ## Homepage
 
