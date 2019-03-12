@@ -12,7 +12,6 @@ use_xft yes
 
 xftfont DejaVuSansMono:size=8
 
-#own_window_colour hotpink
 
 xftalpha 0.8
 
@@ -24,9 +23,10 @@ update_interval 1
 
 own_window yes
 own_window_transparent yes 
-own_window_type desktop
+own_window_type normal
 own_window_argb_visual yes 
-own_window_class override
+own_window_class conky
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager 
 double_buffer yes
 
 
