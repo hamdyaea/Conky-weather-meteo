@@ -44,30 +44,6 @@ On ArchLinux, Manjaro etc...
 ```sh
 sudo pacman -S ttf-dejavu
 ```
-## Bitecoin / Ethereum price display
-
-You need to install jq to be able to parse the json file with the coin price
-
-All information here : https://stedolan.github.io/jq/download/
-
-On Debian, Ubuntu, etc.
-
-```sh
-sudo apt install jq
-```
-
-On Arch Linux, Manjaro, etc.
-
-
-```sh
-sudo pacman -S jq
-```
-
-On Fedora, CentOS, etc.
-
-```sh
-sudo dnf install jq
-```
 
 ## Latitude and longitude
 
