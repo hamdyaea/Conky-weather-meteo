@@ -42,9 +42,6 @@ On ArchLinux, Manjaro etc...
 ```sh
 sudo pacman -S ttf-dejavu
 ```
-## Bitecon / Ethereum price display
-
-
 
 ## Latitude and longitude / Sunrise, Sunset, Day length
 
