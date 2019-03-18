@@ -44,7 +44,7 @@ On ArchLinux, Manjaro etc...
 ```sh
 sudo pacman -S ttf-dejavu
 ```
-## Bitecon / Ethereum price display
+## Bitecoin / Ethereum price display
 
 You need to install jq to be able to parse the json file with the coin price
 
