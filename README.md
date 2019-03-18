@@ -3,7 +3,7 @@
 # My conky configuration file with weather. 
 
 
-![Screenshot](conky4.png)
+![Screenshot](screenshot.png)
 
 
 ## What's this file ?
@@ -44,7 +44,40 @@ On ArchLinux, Manjaro etc...
 ```sh
 sudo pacman -S ttf-dejavu
 ```
+## Bitecon / Ethereum price display
 
+You need to install jq to be able to parse the json file with the coin price
+
+All information here : https://stedolan.github.io/jq/download/
+
+On Debian, Ubuntu, etc.
+
+```sh
+sudo apt install jq
+```
+
+On Arch Linux, Manjaro, etc.
+
+
+```sh
+sudo pacman -S jq
+```
+
+On Fedora, CentOS, etc.
+
+```sh
+sudo dnf install jq
+```
+
+## Latitude and longitude
+
+Modify this line with your longitude and latitude for sunrise and sunset in your current location:
+
+```sh
+${color #00ff00}Sunrise UTC ${texeci 10000 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq '.results.sunrise'}
+${color #00ff00}Sunset UTC ${texeci 10000 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq '.results.sunset'}
+```
+Modify lat=46.745995&lng=7.122781 on the two lines
 
 ## Developer - Author
 

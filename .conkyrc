@@ -15,9 +15,7 @@ xftfont DejaVuSansMono:size=8
 
 xftalpha 0.8
 
-on_bottom yes
-
-mail_spool $MAIL
+#on_bottom yes
 
 update_interval 1
 
@@ -39,7 +37,7 @@ draw_borders no
 stippled_borders 10
 
 
-border_margin 4
+#border_margin 4
 
 
 border_width 1
@@ -54,7 +52,7 @@ gap_x 13
 gap_y 34
 alignment top_right
 
-use_spacer no
+use_spacer none
 
 no_buffers yes
 
@@ -91,3 +89,11 @@ ${color #FFFFFF} ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem m
 ${color #FFFFFF} ${top_mem name 4} ${top_mem pid 4} ${top_mem cpu 4} ${top_mem mem 4}
 
 ${color #00ff00}${texeci 3600 curl "wttr.in/Arconciel?qT0&lang=fr"}
+
+${color #00ff00}Sunrise UTC ${texeci 10000 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq '.results.sunrise'}
+${color #00ff00}Sunset UTC ${texeci 10000 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq '.results.sunset'}
+
+${color #ddaa00}BTC ${texeci 300 curl "http://api.coindesk.com/v1/bpi/currentprice.json" | jq '.bpi.USD.rate_float'} $$
+${color #ddaa00}ETH ${texeci 300 curl https://api.coinmarketcap.com/v1/ticker/ethereum/ | grep "price_usd" | grep -oE "[0-9]*\....." | colrm 6} $$ 
+
+
