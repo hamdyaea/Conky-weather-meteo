@@ -90,9 +90,10 @@ ${color #FFFFFF} ${top_mem name 4} ${top_mem pid 4} ${top_mem cpu 4} ${top_mem m
 
 ${color #00ff00}${texeci 3600 curl "wttr.in/Arconciel?qT0&lang=fr"}
 
-${color #00ff00}Lever du soleil UTC ${texeci 3600 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq '.results.sunrise'}
-${color #00ff00}Coucher du soleil UTC ${texeci 3600 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq '.results.sunset'}
-${color #00ff00}Durée du jour ${texeci 3600 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq '.results.day_length'}
+${color #00ff00}Sunrise UTC ${texeci 3600 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq '.results.sunrise'}
+${color #00ff00}Sunset UTC ${texeci 3600 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq '.results.sunset'}
+${color #00ff00}Day Length ${texeci 3600 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq 
+'.results.day_length'}
 
 ${color #ddaa00}BTC ${texeci 300 curl https://api.coinmarketcap.com/v1/ticker/bitcoin/ | grep "price_usd" | grep -oE "[0-9]*\....."} $$ 
 ${color #ddaa00}ETH ${texeci 300 curl https://api.coinmarketcap.com/v1/ticker/ethereum/ | grep "price_usd" | grep -oE "[0-9]*\....."} $$ 

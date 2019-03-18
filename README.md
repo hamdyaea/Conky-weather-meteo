@@ -33,8 +33,6 @@ The weather police is DejaVu.
 
 To install it:
 
-On Debian, Ubuntu, lubuntu etc...
-
 ```sh
 sudo apt install ttf-dejavu
 ```
@@ -44,8 +42,34 @@ On ArchLinux, Manjaro etc...
 ```sh
 sudo pacman -S ttf-dejavu
 ```
+## Bitecon / Ethereum price display
 
-## Latitude and longitude
+
+
+## Latitude and longitude / Sunrise, Sunset, Day length
+
+You need to install jq to be able to parse the json file with the sun information
+
+All information here : https://stedolan.github.io/jq/download/
+
+On Debian, Ubuntu, etc.
+
+```sh
+sudo apt install jq
+```
+
+On Arch Linux, Manjaro, etc.
+
+
+```sh
+sudo pacman -S jq
+```
+
+On Fedora, CentOS, etc.
+
+```sh
+sudo dnf install jq
+```
 
 Modify this line with your longitude and latitude for sunrise and sunset in your current location:
 
