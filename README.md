@@ -68,13 +68,10 @@ On Fedora, CentOS, etc.
 sudo dnf install jq
 ```
 
-Modify this line with your longitude and latitude for sunrise and sunset in your current location:
+Modify the file sunsetsunrise.sh and put it in your home folder with the .conkyrc. You have to put your longitude and latitude for sunrise and sunset in your current location.
+You have to let +1 if you are in UTC+1, +2 if you are in UTC+2 etc. 
+Read the information inside the sunsetsunrise.sh file.
 
-```sh
-${color #00ff00}Sunrise UTC ${texeci 10000 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq '.results.sunrise'}
-${color #00ff00}Sunset UTC ${texeci 10000 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq '.results.sunset'}
-```
-Modify lat=46.745995&lng=7.122781 on the two lines
 
 ## Developer - Author
 
