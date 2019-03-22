@@ -72,6 +72,18 @@ Modify the file sunsetsunrise.sh and put it in your home folder with the .conkyr
 You have to let +1 if you are in UTC+1, +2 if you are in UTC+2 etc. 
 Read the information inside the sunsetsunrise.sh file. It use the service of https://sunrise-sunset.org/api
 
+## Islamic Adhan pray time
+
+Change all the paths in .conkyrc and the other files to your /home/youruser/
+
+First make executable islamictime.sh with chmod +x islamictime.sh
+
+Change the location to yours and the timezone to yours. You can fint all the information about it there : https://aladhan.com/prayer-times-api
+
+## Languages
+
+I writed it in french but you can modify the .conkyrc and the two shell scritps to your languages.
+
 
 ## Developer - Author
 
