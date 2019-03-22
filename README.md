@@ -70,7 +70,7 @@ sudo dnf install jq
 
 Modify the file sunsetsunrise.sh and put it in your home folder with the .conkyrc. You have to put your longitude and latitude for sunrise and sunset in your current location.
 You have to let +1 if you are in UTC+1, +2 if you are in UTC+2 etc. 
-Read the information inside the sunsetsunrise.sh file.
+Read the information inside the sunsetsunrise.sh file. It use the service of https://sunrise-sunset.org/api
 
 
 ## Developer - Author
