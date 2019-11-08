@@ -1,7 +1,9 @@
 #!/bin/sh
 
 # Developer : Hamdy Abou El Anein
-
+#
+# hamdy.aea@protonmail.com
+#
 # How to configure :
 
 
