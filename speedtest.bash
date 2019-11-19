@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Developer : Hamdy Abou El Anein
+# hamdy.aea@protonmail.com
 
 wget -q --spider https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
 
