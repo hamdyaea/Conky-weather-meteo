@@ -1,12 +1,14 @@
 ![Awesome](awesome.svg)
 
-# My conky configuration file with weather. 
+# My conky confi
+iguration file with weather. 
 
 
 ![Screenshot](screenshot3.png)
 
 
 ## What's this file ?
+
 
 This is the config of my conky. You have to configure linux to launch conky at startup and put this .conkyrc in you home directory.  
 
@@ -42,6 +44,7 @@ On ArchLinux, Manjaro etc...
 ```sh
 sudo pacman -S ttf-dejavu
 ```
+
 
 ## Latitude and longitude / Sunrise, Sunset, Day length
 
@@ -79,6 +82,9 @@ Change all the paths in .conkyrc and the other files to your /home/youruser/
 First make executable islamictime.sh with chmod +x islamictime.sh
 
 Change the location to yours and the timezone to yours. You can fint all the information about it there : https://aladhan.com/prayer-times-api
+
+## Speedtest
+Put the file speedtest.bash with your .conkyrc in your ~home folder and change the path to to it in the .conkyrc file
 
 ## Languages
 
