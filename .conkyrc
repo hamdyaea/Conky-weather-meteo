@@ -95,7 +95,8 @@ ${color #00ff00}${texeci 3600 curl "wttr.in/Arconciel?qT0&lang=fr"}
 ${color #00ff00}${texeci 3600 /home/hamdy/sunsetsunrise.sh}
 ${color #00ff00}Durée du jour ${texeci 3600 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq '.results.day_length'|sed 's/\"//'|sed 's/\"//'}
 
-${color #ddaa00}BTC ${texeci 300 curl https://api.coinmarketcap.com/v1/ticker/bitcoin/ | grep "price_usd" | grep -oE "[0-9]*\....."} $$ ${color #ddaa00}ETH ${texeci 300 curl https://api.coinmarketcap.com/v1/ticker/ethereum/ | grep "price_usd" | grep -oE "[0-9]*\....."} $$ 
+${color #ddaa00}BTC ${texeci 300 curl chf.rate.sx/1BTC} CHF
+${color #ddaa00}ETH ${texeci 300 curl chf.rate.sx/1ETH} CHF 
 ${color #ddaa00}Global Market Cap ${texeci 300 curl  https://api.coinpaprika.com/v1/global | jq '.market_cap_usd'} $$ 
 
 ${color #00ff00}${texeci 3600 /home/hamdy/islamictime.sh}
