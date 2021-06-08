@@ -99,5 +99,5 @@ ${color #ddaa00}ETH ${texeci 300 curl usd.rate.sx/1ETH} $$
 ${color #ddaa00}Global Market Cap ${texeci 300 curl  https://api.coinpaprika.com/v1/global | jq '.market_cap_usd'} $$ 
 ${color #00ff00}${texeci 3600 /home/hamdy/islamictime.sh}
 ${color #ddaa00}${texeci 3600 /home/hamdy/speedtest.bash}
-${color #00ff00}${texeci 360 fortune}
+${color #00ff00}${texeci 360 fortune -s}
 ]];
