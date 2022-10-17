@@ -7,7 +7,7 @@ wget -q --spider https://raw.githubusercontent.com/sivel/speedtest-cli/master/sp
 
 if [ $? -eq 0  ]; then
 
-    speedtest="$(curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -)"
+    speedtest="$(curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python - --secure)"
     echo $speedtest > speedresult
     downspeed="$(cat speedresult| cut -d ':' -f 3 | cut -c -13)"
     upspeed="$(cat speedresult | cut -d ':' -f 4)"
