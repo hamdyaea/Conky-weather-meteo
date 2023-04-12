@@ -109,13 +109,13 @@ ${color #00ff00}${texeci 3600 curl -sS "wttr.in/Fribourg?qT0&lang=fr" 2>/dev/nul
 ${color #00ff00}${texeci 3600 /home/hamdy/sunsetsunrise2.sh}
 
 
-${color #00ff00}Durée du jour ${texeci 3600 curl -sS "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" 2>/dev/null| jq '.results.day_length' | sed 's/\"//' | sed 's/\"//' || echo ""}
+${color #00ff00}Durée du jour ${texeci 3600 curl -sfS "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" 2>/dev/null| jq '.results.day_length' | sed 's/\"//' | sed 's/\"//' || echo ""}
 
 
-${color #ddaa00}BTC ${texeci 300 curl -sS usd.rate.sx/1BTC 2>/dev/null || echo ""} $$
-${color #ddaa00}ETH ${texeci 300 curl -sS usd.rate.sx/1ETH 2>/dev/null || echo ""} $$
+${color #ddaa00}BTC ${texeci 300 curl -sfS usd.rate.sx/1BTC 2>/dev/null | grep -oE '[^:]+$' || echo ""} $$
+${color #ddaa00}ETH ${texeci 300 curl -sfS usd.rate.sx/1ETH 2>/dev/null || echo ""} $$
 #${color #ddaa00}BTC ${texeci 3600 /home/hamdy/myval.bash} $$
-${color #ddaa00}Global Market Cap ${texeci 300 curl -sS https://api.coinpaprika.com/v1/global 2>/dev/null| jq '.market_cap_usd' || echo ""} $$ 
+${color #ddaa00}Global Market Cap ${texeci 300 curl -sfS https://api.coinpaprika.com/v1/global 2>/dev/null| jq '.market_cap_usd' || echo ""} $$ 
 
 
 ${color #00ff00}${texeci 3600 /home/hamdy/islamictime2.sh}
