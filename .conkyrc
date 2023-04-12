@@ -65,17 +65,30 @@ conky.text = [[
 $nodename - $sysname $kernel on $machine
 $stippled_hr
 ${color lightgrey}Uptime:$color $uptime ${color lightgrey}- Load:$color $loadavg
-${color lightgrey}CPU Usage:${color #5000a0} ${cpu}% ${cpubar}
-${color black}${cpugraph 000000 5000a0}
+${color lightgrey}CPU 0 Usage:${color lightgrey} ${cpu cpu0}% ${cpubar cpu0}
+${color lightgrey}CPU 1 Usage:${color lightgrey} ${cpu cpu1}% ${cpubar cpu1}
+${color lightgrey}CPU 2 Usage:${color lightgrey} ${cpu cpu2}% ${cpubar cpu2}
+${color lightgrey}CPU 3 Usage:${color lightgrey} ${cpu cpu3}% ${cpubar cpu3}
+${color lightgrey}CPU 4 Usage:${color lightgrey} ${cpu cpu4}% ${cpubar cpu4}
+${color lightgrey}CPU 5 Usage:${color lightgrey} ${cpu cpu5}% ${cpubar cpu5}
+${color lightgrey}CPU 6 Usage:${color lightgrey} ${cpu cpu6}% ${cpubar cpu6}
+${color lightgrey}CPU 7 Usage:${color lightgrey} ${cpu cpu7}% ${cpubar cpu7}
+${color lightgrey}CPU Total Usage:${color lightgrey} ${cpu}% ${cpubar}
+${color lightgrey}${cpugraph 000000 5000a0}
 ${color lightgrey}RAM Usage:$color $mem/$memmax - $memperc% $membar
 ${color lightgrey}Swap Usage:$color $swap/$swapmax - $swapperc% ${swapbar}
 ${color lightgrey}Processes:$color $processes  ${color grey}Running:$color $running_processes
 $color$stippled_hr
 ${color lightgrey}Networking:
-Down:${color #8844ee} ${downspeed wlp2s0} k/s${color lightgrey} ${offset 70}Up:${color #22ccff} ${upspeed wlp2s0} k/s
-${color black}${downspeedgraph wlp2s0 32,150 ff0000 0000ff} $alignr${color black}${upspeedgraph wlp2s0 32,150 0000ff ff0000}
+Down:${color #8844ee} ${downspeed wlp0s20f3} k/s${color lightgrey} ${offset 70}Up:${color #22ccff} ${upspeed wlp0s20f3} k/s
+${color black}${downspeedgraph wlp0s20f3 32,150 ff0000 0000ff} $alignr${color black}${upspeedgraph wlp0s20f3 32,150 0000ff ff0000}
 ${color lightgrey}File systems:
  / $color${fs_used /}/${fs_size /} ${fs_bar /}
+ /home $color${fs_used /}/${fs_size /} ${fs_bar /}
+ /var $color${fs_used /var}/${fs_size /var} ${fs_bar /var}
+ /usr $color${fs_used /usr}/${fs_size /usr} ${fs_bar /usr}
+ /opt $color${fs_used /opt}/${fs_size /opt} ${fs_bar /opt}
+ /srv $color${fs_used /}/${fs_size /srv} ${fs_bar /srv}
 ${color}Name              PID     CPU%   MEM%
 ${color #ddaa00} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
 ${color lightgrey} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
@@ -90,14 +103,26 @@ ${color #FFFFFF} ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem m
 ${color #FFFFFF} ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
 ${color #FFFFFF} ${top_mem name 4} ${top_mem pid 4} ${top_mem cpu 4} ${top_mem mem 4}
 
-${color #00ff00}${texeci 3600 curl "wttr.in/Arconciel?qT0&lang=fr"}
-${color #00ff00}${texeci 3600 /home/hamdy/sunsetsunrise.sh}
-${color #00ff00}Durée du jour ${texeci 3600 curl "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" | jq '.results.day_length'|sed 's/\"//'|sed 's/\"//'}
-${color #ddaa00}BTC ${texeci 300 curl usd.rate.sx/1BTC} $$
-${color #ddaa00}ETH ${texeci 300 curl usd.rate.sx/1ETH} $$
+${color #00ff00}${texeci 3600 curl -sS "wttr.in/Fribourg?qT0&lang=fr" 2>/dev/null|| echo ""}
+
+
+${color #00ff00}${texeci 3600 /home/hamdy/sunsetsunrise2.sh}
+
+
+${color #00ff00}Durée du jour ${texeci 3600 curl -sS "https://api.sunrise-sunset.org/json?lat=46.745995&lng=7.122781&date=today" 2>/dev/null| jq '.results.day_length' | sed 's/\"//' | sed 's/\"//' || echo ""}
+
+
+${color #ddaa00}BTC ${texeci 300 curl -sS usd.rate.sx/1BTC 2>/dev/null || echo ""} $$
+${color #ddaa00}ETH ${texeci 300 curl -sS usd.rate.sx/1ETH 2>/dev/null || echo ""} $$
 #${color #ddaa00}BTC ${texeci 3600 /home/hamdy/myval.bash} $$
-${color #ddaa00}Global Market Cap ${texeci 300 curl  https://api.coinpaprika.com/v1/global | jq '.market_cap_usd'} $$ 
-${color #00ff00}${texeci 3600 /home/hamdy/islamictime.sh}
-${color #ddaa00}${texeci 3600 /home/hamdy/speedtest.bash}
+${color #ddaa00}Global Market Cap ${texeci 300 curl -sS https://api.coinpaprika.com/v1/global 2>/dev/null| jq '.market_cap_usd' || echo ""} $$ 
+
+
+${color #00ff00}${texeci 3600 /home/hamdy/islamictime2.sh}
+
+
+${color #ddaa00}${texeci 3600 /home/hamdy/speedtest2.bash}
+
+
 ${color #00ff00}${texeci 360 fortune -s}
 ]];
