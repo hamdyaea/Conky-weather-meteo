@@ -31,7 +31,7 @@ conky.config = {
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 	double_buffer = true,
 
-
+    own_window_argb_visual = false,
 	draw_shades = false,
 
 	draw_outline = false,
@@ -42,15 +42,15 @@ conky.config = {
 
 
 
-	border_width = 1,
+	border_width = 10,
 
 
 	default_color = 'white',
 	default_shade_color = 'white',
 	default_outline_color = 'white',
 
-	gap_x = 13,
-	gap_y = 34,
+	gap_x = 1,
+	gap_y = 1,
 	alignment = 'top_right',
 
 	use_spacer = 'none',
@@ -84,11 +84,11 @@ Down:${color #8844ee} ${downspeed wlp0s20f3} k/s${color lightgrey} ${offset 70}U
 ${color black}${downspeedgraph wlp0s20f3 32,150 ff0000 0000ff} $alignr${color black}${upspeedgraph wlp0s20f3 32,150 0000ff ff0000}
 ${color lightgrey}File systems:
  / $color${fs_used /}/${fs_size /} ${fs_bar /}
- /home $color${fs_used /}/${fs_size /} ${fs_bar /}
+ /home $color${fs_used /home}/${fs_size /home} ${fs_bar /home}
  /var $color${fs_used /var}/${fs_size /var} ${fs_bar /var}
  /usr $color${fs_used /usr}/${fs_size /usr} ${fs_bar /usr}
  /opt $color${fs_used /opt}/${fs_size /opt} ${fs_bar /opt}
- /srv $color${fs_used /}/${fs_size /srv} ${fs_bar /srv}
+ /srv $color${fs_used /srv}/${fs_size /srv} ${fs_bar /srv}
 ${color}Name              PID     CPU%   MEM%
 ${color #ddaa00} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
 ${color lightgrey} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
