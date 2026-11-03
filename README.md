@@ -1,101 +1,54 @@
-![Awesome](awesome.svg)
+# Conky Weather / Meteo
 
-# My conky confi
-iguration file with weather. 
+Developer: Hamdy Abou El Anein
+Contact: hamdy.aea@protonmail.com
+License: GNU GPL v3 (see LICENSE).
 
+A classic Conky dashboard configuration for Linux with weather, sunrise,
+sunset, prayer times, network speed and system monitoring.
 
 ![Screenshot](screenshot3.png)
 
+## Modernized scripts
 
-## What's this file ?
+The historical Bash helpers downloaded and executed a remote Python script
+for each speed test, made multiple redundant HTTP requests and hard-coded
+manual UTC offsets. The modernized versions:
 
+- `speedtest2.bash` uses the **installed** `speedtest-cli` and parses its
+  JSON output, with a 50-second timeout. It **never executes downloaded code**.
+- `islamictime2.sh` makes one HTTPS request to AlAdhan, validates the JSON
+  response and allows location overrides via `PRAYER_CITY`,
+  `PRAYER_COUNTRY`, `PRAYER_TIMEZONE`.
+- `sunsetsunrise2.sh` makes one HTTPS request to sunrise-sunset.org, then
+  converts the UTC response to local time with GNU `date` (handles DST).
+  Configure `SUN_LAT` and `SUN_LON` in your environment.
+- The original script names without `2` are maintained as compatibility
+  wrappers for existing Conky configurations.
 
-This is the config of my conky. You have to configure linux to launch conky at startup and put this .conkyrc in you home directory.  
+Install dependencies with your package manager: `curl`, `jq`, `python3`,
+`speedtest-cli`, `coreutils` and Conky. The `.conkyrc` file is a **sample**:
+adapt interface names, locations, and absolute paths before copying it into
+your home directory. This repository does not modify your running Conky.
 
-
-## Weather / Meteo
-
-Modify the last line for your location and language :
-
-```sh
-${color #00ff00}${texeci 3600 curl "wttr.in/Arconciel?qT0&lang=fr"}
-```
-You can find more information there : https://wttr.in/:help
-
-
-By default it use the eth0 network interface. You can find your network interface with #ifconfig then modify those two lines with the name of the network interface. You have to modify it after downspeed, upspeed, downspeedgraph, upspeedgraph :
-
-```sh
-Down:${color #8844ee} ${downspeed eth0} k/s${color lightgrey} ${offset 70}Up:${color #22ccff} ${upspeed eth0} k/s
-${color black}${downspeedgraph eth0 32,150 ff0000 0000ff} $alignr${color black}${upspeedgraph eth0 32,150 0000ff ff0000}
-```
-
-The weather police is DejaVu.
-
-
-To install it:
+## Examples
 
 ```sh
-sudo apt install ttf-dejavu
+PRAYER_CITY=Fribourg PRAYER_COUNTRY=CH ./islamictime2.sh
+SUN_LAT=46.8 SUN_LON=7.15 ./sunsetsunrise2.sh
+./speedtest2.bash
 ```
 
-On ArchLinux, Manjaro etc...
+The speed test consumes bandwidth. Use a long Conky update interval
+(at least 3600 seconds), not a short CPU-monitor refresh.
+
+## Offline regression tests
 
 ```sh
-sudo pacman -S ttf-dejavu
+python3 -m unittest discover -s tests -v
 ```
 
+The tests mock all HTTP and speedtest commands and never contact external
+services. Five tests cover JSON parsing, time-zone conversion and errors.
 
-## Latitude and longitude / Sunrise, Sunset, Day length
-
-You need to install jq to be able to parse the json file with the sun information
-
-All information here : https://stedolan.github.io/jq/download/
-
-On Debian, Ubuntu, etc.
-
-```sh
-sudo apt install jq
-```
-
-On Arch Linux, Manjaro, etc.
-
-
-```sh
-sudo pacman -S jq
-```
-
-On Fedora, CentOS, etc.
-
-```sh
-sudo dnf install jq
-```
-
-Modify the file sunsetsunrise.sh and put it in your home folder with the .conkyrc. You have to put your longitude and latitude for sunrise and sunset in your current location.
-You have to let +1 if you are in UTC+1, +2 if you are in UTC+2 etc. 
-Read the information inside the sunsetsunrise.sh file. It use the service of https://sunrise-sunset.org/api
-
-## Islamic Adhan pray time
-
-Change all the paths in .conkyrc and the other files to your /home/youruser/
-
-First make executable islamictime.sh with chmod +x islamictime.sh
-
-Change the location to yours and the timezone to yours. You can fint all the information about it there : https://aladhan.com/prayer-times-api
-
-## Speedtest
-Put the file speedtest.bash with your .conkyrc in your ~home folder and change the path to to it in the .conkyrc file
-
-## Languages
-
-I writed it in french but you can modify the .conkyrc and the two shell scritps to your languages.
-
-
-## Developer - Author
-
-Hamdy Abou El Anein
-
-
-## Homepage
-
-http://www.daylightlinux.ch 
+Historical scripts are preserved in the `old` branch.
